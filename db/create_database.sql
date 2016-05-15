@@ -1,12 +1,12 @@
 CREATE DOMAIN identify
  AS INTEGER;
 
-CREATE DOMAIN name
+CREATE DOMAIN name_custom
  AS VARCHAR(30);
 
 CREATE TABLE Stations(
 	ID_station SERIAL NOT NULL,
-	Name_station name NOT NULL
+	Name_station name_custom NOT NULL
 );
 
 CREATE TABLE Stops(
@@ -18,8 +18,8 @@ CREATE TABLE Stops(
 
 CREATE TABLE Routes(
 	ID_route SERIAL NOT NULL,
-	Region  name NOT NULL,
-	City    name NOT NULL
+	Region  name_custom NOT NULL,
+	City    name_custom NOT NULL
 );
 
 CREATE TABLE Flights(
