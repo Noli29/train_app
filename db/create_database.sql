@@ -78,10 +78,18 @@ ALTER TABLE Flights ADD CONSTRAINT FK_flights_routes FOREIGN KEY (ID_route) REFE
 /*___________________________________________________*/
 ALTER TABLE Tickets ADD CONSTRAINT FK_tickets_places FOREIGN KEY (ID_place) REFERENCES Places (ID_place);
 ALTER TABLE Tickets ADD CONSTRAINT FK_tickets_flights FOREIGN KEY (ID_flight) REFERENCES Flights (ID_flight);
+ALTER TABLE Tickets ADD CONSTRAINT FK_tickets_flights FOREIGN KEY (ID_route) REFERENCES Routes (ID_route);
 ALTER TABLE Tickets ADD CONSTRAINT FK_tickets_station_arrival FOREIGN KEY (ID_station) REFERENCES Stations (ID_station);
 ALTER TABLE Tickets ADD CONSTRAINT FK_tickets_station_departure FOREIGN KEY (Stat_ID_station) REFERENCES Stations (ID_station);
 
-
+CREATE TRIGGER CHECK_date_arrival
+BEFORE INSERT OR UPDATE OF date_arrival ON Tickets
+FOR EACH ROW
+BEGIN
+IF :NEW.date_arrival <= :NEW.date_dispatch THEN
+RAISE_APPLICATION_ERROR(-20001, 'ERROR DATE');
+END IF;
+END;
 
 
 

@@ -4,4 +4,7 @@ class Route < ActiveRecord::Base
   has_many :stop
   has_many :ticket
   has_many :flight
+
+  validates :region, presence: true, length: { maximum: 30}
+  validates :city, presence: true, length: { maximum: 30}
 end

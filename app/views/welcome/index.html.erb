@@ -1,1 +1,225 @@
+<!--<main>-->
+  <!--<div class="container">-->
+    <!--<div id="octopus_tickets">-->
+      <!--<div style="clear: both;"></div>-->
+      <!--<div id="oct_st_content" class="widget-content-border">-->
+        <!--<div id="stations">-->
+          <!--<section class="tr-main-stations">-->
+            <!--<div class="tr-stations__content">-->
+              <!--<form data-id="search-form" novalidate="novalidate">-->
+                <!--<div class="tr-stations-direction">-->
+                  <!--<span data-type="one-way" data-action="change-way-direction" class="active">В один кінець</span>-->
+                  <!--<span data-type="two-way" data-action="change-way-direction">Туди й назад</span>-->
+                <!--</div>-->
+                <!--<div class="tr-stations-directions">-->
+                  <!--<div class="tr-stations-directions__from pull-left">-->
+                  <!--<span class="tr-stations-directions__icon"></span>-->
+                    <!--<input type="text" placeholder="Звідки" class="tr-stations-directions__input" maxlength="48" data-id="from-station" data-type="direction-input">-->
+                    <!--<ul class="typeahead dropdown-menu"></ul>-->
+                    <!--<em class="err"></em>-->
+                    <!--<div class="tr-stations-directions__defaults">-->
+                      <!--<span title="Київ" data-action="station-link" data-station-type="from" data-name="КИЇВ-ПАСАЖИРСЬКИЙ">Київ</span>-->
+                      <!--<span title="Дніпропетровськ" data-action="station-link" data-station-type="from" data-name="ДНІПРОПЕТРОВСЬК ГОЛОВНИЙ">Дніпропетровськ</span>-->
+                      <!--<span title="Харків" data-action="station-link" data-station-type="from" data-name="ХАРКІВ-ПАС">Харків</span>-->
+                      <!--<span title="Львів" data-action="station-link" data-station-type="from" data-name="ЛЬВІВ" class="current">Львів</span>-->
+                      <!--<span title="Одеса" data-action="station-link" data-station-type="from" data-name="ОДЕСА-ГОЛОВНА">Одеса</span>-->
+                    <!--</div>-->
+                    <!--<div class="tr-stations-directions__date">-->
+                      <!--<span class="tr-stations-directions__date__icon"></span>-->
+                      <!--<span class="tr-stations-directions__date__day" data-id="date-week-from" data-type="date-week">СР</span>-->
+                      <!--<input type="text" placeholder="Дата відправлення" class="tr-stations__date__input form-control" data-type="date" data-id="date-from" readonly="readonly">-->
+                      <!--<div class="tr-stations-quick-date">-->
+                        <!--<span title="Завтра" data-date-from="1">Завтра</span>-->
+                        <!--<span title="Післязавтра" data-date-from="2" class="current">Післязавтра</span>-->
+                        <!--<span title="Через 3 дні" data-date-from="3">Через 3 дні</span>-->
+                      <!--</div>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                  <!--<span class="tr-stations-directions-switch" data-action="reverse" title="поміняти місцями"></span>-->
+                  <!--<div class="tr-stations-directions__from pull-right">-->
+                    <!--<span class="tr-stations-directions__icon"></span>-->
+                    <!--<input type="text" placeholder="Куди" class="tr-stations-directions__input" maxlength="48" data-id="to-station" data-type="direction-input">-->
+                    <!--<ul class="typeahead dropdown-menu"></ul>-->
+                    <!--<em class="err"></em>-->
+                    <!--<div class="tr-stations-directions__defaults">-->
+                      <!--<span title="Київ" data-action="station-link" data-station-type="to" data-name="КИЇВ-ПАСАЖИРСЬКИЙ">Київ</span>-->
+                      <!--<span title="Дніпропетровськ" data-action="station-link" data-station-type="to" data-name="ДНІПРОПЕТРОВСЬК ГОЛОВНИЙ">Дніпропетровськ</span>-->
+                      <!--<span title="Харків" data-action="station-link" data-station-type="to" data-name="ХАРКІВ-ПАС">Харків</span>-->
+                      <!--<span title="Львів" data-action="station-link" data-station-type="to" data-name="ЛЬВІВ" class="current">Львів</span>-->
+                      <!--<span title="Одеса" data-action="station-link" data-station-type="to" data-name="ОДЕСА-ГОЛОВНА">Одеса</span>-->
+                    <!--</div><div class="tr-stations-directions__date" style="display: none" data-id="back-content">-->
+                    <!--<span class="tr-stations-directions__date__icon"></span>-->
+                    <!--<span class="tr-stations-directions__date__day" data-id="date-week-back" data-type="date-week">СР</span>-->
+                    <!--<input type="text" placeholder="Дата відправлення" class="tr-stations__date__input form-control" data-type="date" data-id="date-back" readonly="readonly">-->
+                    <!--<div class="tr-stations-quick-date"><span title="Завтра" data-date-back="1" class="current">Завтра</span>-->
+                      <!--<span title="Післязавтра" data-date-back="2" class="current">Післязавтра</span>-->
+                      <!--<span title="Через 3 дні" data-date-back="3">Через 3 дні</span>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                  <!--</div>-->
+                  <!--<div class="clearfix"></div>-->
+                  <!--<span class="error_field-global text-center" data-id="stations-error">&nbsp;</span>-->
+                  <!--<button class="tr-stations-search" data-action="search">Знайти</button>-->
+                  <!--<div class="clearfix"></div>-->
+                <!--</div>-->
+              <!--</form>-->
+            <!--</div>-->
+          <!--</section>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div id="oct_dn_content" style="overflow-x: hidden;">-->
+        <!--<div id="order_tickets_content" class="tr-main-list" style="display: none;">-->
+          <!--<div class="tr-order-ticket">-->
+            <!--<div class="tr-order-ticket__title">-->
+              <!--<div class="order-tickets-header_p">Не знайшли підходяще місце?-->
+              <!--</div>-->
+              <!--<div class="order-tickets-header_p">Залишіть нам заявку і в разі появи місць ми повідомимо Вам!-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="tr-order-ticket__row">-->
+              <!--<div class="tr-order-ticket__label-col">-->
+                <!--<label for="order-direction">Напрям:</label>-->
+              <!--</div>-->
+              <!--<div class="tr-order-ticket__content-col tr-order-ticket__content-col&#45;&#45;direction">-->
+                <!--<input type="text" class="tr-form-input" id="order-direction" value="ЧЕРКАСИ - ЛЬВІВ" disabled="disabled">-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="tr-order-ticket__row">-->
+              <!--<div class="tr-order-ticket__label-col">-->
+                <!--<label for="order-data">Дата відправлення:</label>-->
+              <!--</div>-->
+              <!--<div class="tr-order-ticket__content-col tr-order-ticket__content-col&#45;&#45;date">-->
+                <!--<input type="text" class="tr-form-input" id="order-data" value="18.05.2016" disabled="disabled">-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="tr-order-ticket__row car-type-row">-->
+              <!--<div class="tr-order-ticket__label-col">-->
+                <!--<label for="order-data">Тип вагону:</label>-->
+              <!--</div>-->
+              <!--<div class="tr-order-ticket__content-col tr-order-ticket__choice-type">-->
+                <!--<div class="tr-order-ticket__choice-type-item"><label>-->
+                  <!--<input type="checkbox" data-car-type-id="1" data-name="Люкс"> Люкс </label>-->
+                <!--</div>-->
+                <!--<div class="tr-order-ticket__choice-type-item"><label>-->
+                  <!--<input type="checkbox" data-car-type-id="2" data-name="Купейний"> Купейний </label>-->
+                <!--</div>-->
+                <!--<div class="tr-order-ticket__choice-type-item"><label>-->
+                  <!--<input type="checkbox" data-car-type-id="3" data-name="Плацкарт"> Плацкарт </label>-->
+                <!--</div>-->
+                <!--<div class="tr-order-ticket__choice-type-item"><label>-->
+                  <!--<input type="checkbox" data-car-type-id="13" data-name="Сидячий 1 клас"> Сидячий 1 клас </label>-->
+                <!--</div>-->
+                <!--<div class="tr-order-ticket__choice-type-item"><label>-->
+                  <!--<input type="checkbox" data-car-type-id="14" data-name="Сидячий 2 клас"> Сидячий 2 клас </label>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="tr-order-ticket__row seat-type-row">-->
+              <!--<div class="tr-order-ticket__label-col">-->
+                <!--<label for="order-data">Вид місця:</label>-->
+              <!--</div>-->
+              <!--<div class="tr-order-ticket__content-col tr-order-ticket__choice-type">-->
+                <!--<div class="tr-order-ticket__choice-type-item"><label>-->
+                  <!--<input type="checkbox" class="order-seat-type" data-seat-type="lower" data-name="Нижні" checked="checked"> Нижні  </label>-->
+                <!--</div><div class="tr-order-ticket__choice-type-item"><label>-->
+                <!--<input type="checkbox" class="order-seat-type" data-seat-type="upper" data-name="Верхні"> Верхні </label>-->
+              <!--</div>-->
+                <!--<div class="tr-order-ticket__choice-type-item"><label>-->
+                  <!--<input type="checkbox" class="order-seat-type" data-seat-type="sitting" data-name="Сидячі"> Сидячі </label>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="passenger-data-content">-->
+              <!--<div>-->
+                <!--<div class="tr-order-ticket__passenger">-->
+                  <!--<div class="tr-order-ticket__row">-->
+                    <!--<div class="tr-order-ticket__label-col">-->
+                      <!--<label>Пасажир 1:</label>-->
+                    <!--</div>-->
+                    <!--<div class="tr-order-ticket__content-col">-->
+                      <!--<div class="tr-order-ticket__passenger-main flex-grid-row">-->
+                        <!--<div class="flex-col-1 flex-grid-row tr-order-ticket__passenger-main-col tr-order-ticket__passenger-info">-->
+                          <!--<div class="flex-col-1 tr-order-ticket__passenger-col">-->
+                            <!--<input type="text" class="tr-form-input" data-type="lastName" maxlength="30" data-input="true" placeholder="Прізвище" value="">-->
+                          <!--</div>-->
+                          <!--<div class="flex-col-1 tr-order-ticket__passenger-col">-->
+                            <!--<input type="text" class="tr-form-input" data-type="firstName" maxlength="20" data-input="true" placeholder="Ім’я" value="">-->
+                          <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="flex-grid-row flex-col-1 tr-order-ticket__passenger-main-col tr-order-ticket__passenger-type-wrap">-->
+                          <!--<div class="tr-order-ticket__passenger-type active" data-action="ticket-type" data-type="adult">-->
+                            <!--<div class="tr-order-ticket__passenger-type-icon tr-order-ticket__passenger-type-icon&#45;&#45;adult"></div>-->
+                            <!--<div class="tr-order-ticket__passenger-type-label">Дорослий</div>-->
+                          <!--</div>-->
+                          <!--<div class="tr-order-ticket__passenger-type" data-action="ticket-type" data-type="child">-->
+                            <!--<div class="tr-order-ticket__passenger-type-icon tr-order-ticket__passenger-type-icon&#45;&#45;kid"></div>-->
+                            <!--<div class="tr-order-ticket__passenger-type-label">Дитина</div>-->
+                          <!--</div>-->
+                          <!--<div class="tr-order-ticket__passenger-type" data-action="ticket-type" data-type="student">-->
+                            <!--<div class="tr-order-ticket__passenger-type-icon tr-order-ticket__passenger-type-icon&#45;&#45;student"></div>-->
+                            <!--<div class="tr-order-ticket__passenger-type-label">Студент</div>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                      <!--</div>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                  <!--<div class="tr-order-ticket__row hidden" data-for="child">-->
+                    <!--<div class="tr-order-ticket__label-col"></div>-->
+                    <!--<div class="tr-order-ticket__content-col hidden" data-for="child">-->
+                      <!--<div class="tr-order-ticket__passenger-birthday-label">Дата народження:</div>-->
+                      <!--<div class="tr-order-ticket__passenger-birthday">-->
+                        <!--<div class="tr-order-ticket__passenger-birthday-col">-->
+                          <!--<input type="text" class="tr-form-input" data-child-birthday="day" data-input="true" placeholder="ДД" maxlength="2" value="">-->
+                        <!--</div>-->
+                        <!--<div class="tr-order-ticket__passenger-birthday-col">-->
+                          <!--<input type="text" class="tr-form-input" data-child-birthday="month" data-input="true" placeholder="ММ" maxlength="2" value="">-->
+                        <!--</div>-->
+                        <!--<div class="tr-order-ticket__passenger-birthday-col">-->
+                          <!--<input type="text" class="tr-form-input" data-child-birthday="year" data-input="true" placeholder="ГГГГ" maxlength="4" value="">-->
+                        <!--</div>-->
+                      <!--</div>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                  <!--<div class="tr-order-ticket__row hidden" data-for="student">-->
+                    <!--<div class="tr-order-ticket__label-col"></div>-->
+                    <!--<div class="tr-order-ticket__student-number">-->
+                      <!--<input type="tel" class="tr-form-input" data-input="true" value="" placeholder="Серія та № студ. квитка" data-type="studentNumber">-->
+                    <!--</div>-->
+                  <!--</div>-->
+                  <!--<div class="tr-order-ticket__row error_row">-->
+                    <!--<div class="tr-order-ticket__label-col"></div>-->
+                    <!--<div data-id="error" class="error_field-global"></div>-->
+                  <!--</div>-->
+                  <!--<div class="tr-order-ticket__row">-->
+                    <!--<div class="tr-order-ticket__label-col"></div>-->
+                    <!--<div class="tr-order-ticket__content-col tr-order-ticket__add-passenger-wrap">-->
+                      <!--<div class="tr-order-ticket__add-passenger-wrap-col">-->
+                        <!--<span data-action="add-passenger">додати пасажира</span>-->
+                      <!--</div>-->
+                      <!--<div class="flex-col-1"></div>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="tr-order-ticket__row">-->
+              <!--<div class="tr-order-ticket__label-col">-->
+                <!--<label for="order-data">Телефон:</label>-->
+              <!--</div>-->
+              <!--<div class="tr-order-ticket__content-col tr-order-ticket__content-col&#45;&#45;phone">-->
+                <!--<input type="text" class="tr-form-input" data-id="phone" value="+380" minlength="7">-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div data-id="error" class="tr-order-ticket__row tr-order-ticket__global-error"></div>-->
+            <!--<div class="tr-order-ticket__button-wrap">-->
+              <!--<input type="button" class="tr-button-brand" data-action="send-order" value="Подати заявку">-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div id="train_content" class="tr-main-list" style="display: none;">-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
+<!--</main>-->

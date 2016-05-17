@@ -6,4 +6,13 @@ class Ticket < ActiveRecord::Base
   belongs_to :route
   belongs_to :flight
   belongs_to :station
+
+  validates :password_number, presence: true, length: { maximum: 8}
+  validates :full_name, presence: true, length: { maximum: 80}
+
+  validates_format_of :date_arrival, :with => /\d{2}\/\d{2}\/\d{4}/,
+                      :message => "^Date must be in the following format: mm/dd/yyyy"
+
+  validates_format_of :date_dispatch, :with => /\d{2}\/\d{2}\/\d{4}/,
+                      :message => "^Date must be in the following format: mm/dd/yyyy"
 end

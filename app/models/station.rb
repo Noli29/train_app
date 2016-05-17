@@ -5,4 +5,5 @@ class Station < ActiveRecord::Base
   has_many :stop
   has_many :ticket
 
+  validates :name_station, presence: true, length: { maximum: 30}
 end
