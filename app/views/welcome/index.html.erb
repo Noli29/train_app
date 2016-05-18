@@ -1,6 +1,6 @@
 <!--<main>-->
   <!--<div class="container">-->
-    <!--<div id="octopus_tickets">-->
+    <!--<div class="" id="octopus_tickets">-->
       <!--<div style="clear: both;"></div>-->
       <!--<div id="oct_st_content" class="widget-content-border">-->
         <!--<div id="stations">-->
@@ -13,26 +13,16 @@
                 <!--</div>-->
                 <!--<div class="tr-stations-directions">-->
                   <!--<div class="tr-stations-directions__from pull-left">-->
-                  <!--<span class="tr-stations-directions__icon"></span>-->
+                  <!--<span class="tr-stations-directions__icon">-->
+                  <!--</span>-->
                     <!--<input type="text" placeholder="Звідки" class="tr-stations-directions__input" maxlength="48" data-id="from-station" data-type="direction-input">-->
-                    <!--<ul class="typeahead dropdown-menu"></ul>-->
+                    <!--<ul class="typeahead dropdown-menu">-->
+                    <!--</ul>-->
                     <!--<em class="err"></em>-->
-                    <!--<div class="tr-stations-directions__defaults">-->
-                      <!--<span title="Київ" data-action="station-link" data-station-type="from" data-name="КИЇВ-ПАСАЖИРСЬКИЙ">Київ</span>-->
-                      <!--<span title="Дніпропетровськ" data-action="station-link" data-station-type="from" data-name="ДНІПРОПЕТРОВСЬК ГОЛОВНИЙ">Дніпропетровськ</span>-->
-                      <!--<span title="Харків" data-action="station-link" data-station-type="from" data-name="ХАРКІВ-ПАС">Харків</span>-->
-                      <!--<span title="Львів" data-action="station-link" data-station-type="from" data-name="ЛЬВІВ" class="current">Львів</span>-->
-                      <!--<span title="Одеса" data-action="station-link" data-station-type="from" data-name="ОДЕСА-ГОЛОВНА">Одеса</span>-->
-                    <!--</div>-->
                     <!--<div class="tr-stations-directions__date">-->
                       <!--<span class="tr-stations-directions__date__icon"></span>-->
                       <!--<span class="tr-stations-directions__date__day" data-id="date-week-from" data-type="date-week">СР</span>-->
                       <!--<input type="text" placeholder="Дата відправлення" class="tr-stations__date__input form-control" data-type="date" data-id="date-from" readonly="readonly">-->
-                      <!--<div class="tr-stations-quick-date">-->
-                        <!--<span title="Завтра" data-date-from="1">Завтра</span>-->
-                        <!--<span title="Післязавтра" data-date-from="2" class="current">Післязавтра</span>-->
-                        <!--<span title="Через 3 дні" data-date-from="3">Через 3 дні</span>-->
-                      <!--</div>-->
                     <!--</div>-->
                   <!--</div>-->
                   <!--<span class="tr-stations-directions-switch" data-action="reverse" title="поміняти місцями"></span>-->
@@ -41,20 +31,10 @@
                     <!--<input type="text" placeholder="Куди" class="tr-stations-directions__input" maxlength="48" data-id="to-station" data-type="direction-input">-->
                     <!--<ul class="typeahead dropdown-menu"></ul>-->
                     <!--<em class="err"></em>-->
-                    <!--<div class="tr-stations-directions__defaults">-->
-                      <!--<span title="Київ" data-action="station-link" data-station-type="to" data-name="КИЇВ-ПАСАЖИРСЬКИЙ">Київ</span>-->
-                      <!--<span title="Дніпропетровськ" data-action="station-link" data-station-type="to" data-name="ДНІПРОПЕТРОВСЬК ГОЛОВНИЙ">Дніпропетровськ</span>-->
-                      <!--<span title="Харків" data-action="station-link" data-station-type="to" data-name="ХАРКІВ-ПАС">Харків</span>-->
-                      <!--<span title="Львів" data-action="station-link" data-station-type="to" data-name="ЛЬВІВ" class="current">Львів</span>-->
-                      <!--<span title="Одеса" data-action="station-link" data-station-type="to" data-name="ОДЕСА-ГОЛОВНА">Одеса</span>-->
-                    <!--</div><div class="tr-stations-directions__date" style="display: none" data-id="back-content">-->
+                    <!--<div class="tr-stations-directions__date" style="display: none" data-id="back-content">-->
                     <!--<span class="tr-stations-directions__date__icon"></span>-->
                     <!--<span class="tr-stations-directions__date__day" data-id="date-week-back" data-type="date-week">СР</span>-->
                     <!--<input type="text" placeholder="Дата відправлення" class="tr-stations__date__input form-control" data-type="date" data-id="date-back" readonly="readonly">-->
-                    <!--<div class="tr-stations-quick-date"><span title="Завтра" data-date-back="1" class="current">Завтра</span>-->
-                      <!--<span title="Післязавтра" data-date-back="2" class="current">Післязавтра</span>-->
-                      <!--<span title="Через 3 дні" data-date-back="3">Через 3 дні</span>-->
-                    <!--</div>-->
                   <!--</div>-->
                   <!--</div>-->
                   <!--<div class="clearfix"></div>-->
@@ -216,10 +196,43 @@
             <!--</div>-->
           <!--</div>-->
         <!--</div>-->
-        <!--<div id="train_content" class="tr-main-list" style="display: none;">-->
-        <!--</div>-->
+        <!--<div id="train_content" class="tr-main-list" style="display: none;"></div>-->
       <!--</div>-->
     <!--</div>-->
   <!--</div>-->
 
 <!--</main>-->
+
+<main>
+  <div class="container">
+    <div style="margin-bottom: 20px;">
+      <button type="button" class="btn btn-default">В один кінець</button>
+    </div>
+    <form class="form-inline" style="margin-bottom: 20px;">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Звідки" data-id="from-station" data-type="direction-input">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Куди" data-id="from-station" data-type="direction-input">
+      </div>
+      <div class="form-group">
+        <div class='input-group date' id='datetimepicker2'>
+          <input type='text' class="form-control" />
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+      </div>
+    </form>
+    <div  style="margin-bottom: 20px;">
+      <button type="button" class="btn btn-primary" data-action="search">Знайти</button>
+    </div>
+    <div style="margin-top: 20px;">
+      <%= render 'trains/show' %>
+    </div>
+    <div style="margin-top: 20px;">
+      <%= render 'tickets/show' %>
+    </div>
+
+  </div>
+</main>

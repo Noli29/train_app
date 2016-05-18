@@ -1,0 +1,28 @@
+// Place all the styles related to the Trains controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#trains {
+  text-align: center;
+  float: left;
+  width: 30%;
+  .form-control{
+    width: 50%;
+  }
+}
+#carriages {
+  text-align: center;
+  float: left;
+  width: 40%;
+  .form-control{
+    width: 50%;
+  }
+}
+#places {
+  text-align: center;
+  float: left;
+  width: 30%;
+  .form-control{
+    width: 50%;
+  }
+}
