@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
 
-  root 'welcome#index'
 
-  resources :tickets
+  ActiveAdmin.routes(self)
+  devise_for :users, ActiveAdmin::Devise.config
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
+
+  #root 'welcome#index'
+
+  #resources :tickets
+ # resources :trains
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
