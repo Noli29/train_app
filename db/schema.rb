@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160518212254) do
+ActiveRecord::Schema.define(version: 20160518214406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,24 @@ ActiveRecord::Schema.define(version: 20160518212254) do
   create_table "trains", primary_key: "train_number", force: :cascade do |t|
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
   add_foreign_key "carriages", "trains", column: "train_number", primary_key: "train_number", name: "fk_carr_train"
   add_foreign_key "flights", "routes", column: "id_route", primary_key: "id_route", name: "fk_flights_routes"
   add_foreign_key "flights", "trains", column: "train_number", primary_key: "train_number", name: "fk_flights_trains"
@@ -107,6 +125,7 @@ ActiveRecord::Schema.define(version: 20160518212254) do
   add_foreign_key "stops", "stations", column: "id_station", primary_key: "id_station", name: "fk_stops_stations"
   add_foreign_key "tickets", "flights", column: "id_flight", primary_key: "id_flight", name: "fk_tickets_flights"
   add_foreign_key "tickets", "places", column: "id_place", primary_key: "id_place", name: "fk_tickets_places"
+  add_foreign_key "tickets", "routes", column: "id_route", primary_key: "id_route", name: "fk_tickets_routes"
   add_foreign_key "tickets", "stations", column: "id_station", primary_key: "id_station", name: "fk_tickets_station_arrival"
   add_foreign_key "tickets", "stations", column: "stat_id_station", primary_key: "id_station", name: "fk_tickets_station_departure"
 end
