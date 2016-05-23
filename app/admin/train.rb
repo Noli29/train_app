@@ -13,5 +13,5 @@ ActiveAdmin.register Train do
 #   permitted
 # end
 
-
+    remove_filter :carriages, :flights
 end
