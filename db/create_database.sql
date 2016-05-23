@@ -4,6 +4,14 @@ CREATE DOMAIN identify
 CREATE DOMAIN name_custom
  AS VARCHAR(30);
 
+-- CREATE DOMAIN date_a
+-- AS DATE
+-- CHECK (date_d > date_a);
+--
+-- CREATE DOMAIN date_d
+-- AS DATE
+-- CHECK (date_d > date_a);
+
 CREATE TABLE Stations(
 	ID_station SERIAL NOT NULL,
 	Name_station name_custom NOT NULL
