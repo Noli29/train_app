@@ -3,7 +3,7 @@ development:
     encoding: utf8
     pool: 5
     username: postgres
-    password: '12345'
+    password: '112233'
     database: train_app
     host: localhost
 
