@@ -2,10 +2,11 @@ class Ticket < ActiveRecord::Base
   attr_accessor :id_ticket, :id_place, :id_route, :id_station, :stat_id_station, :id_flight,
                 :date_arrival, :date_dispatch, :password_number, :full_name
 
-  belongs_to :place
-  belongs_to :route
-  belongs_to :flight
-  belongs_to :station
+  belongs_to :place, foreign_key: "ID_place"
+  belongs_to :route, foreign_key: "ID_route"
+  belongs_to :flight, foreign_key: "ID_flight"
+  belongs_to :station, foreign_key: "ID_station"
+  belongs_to :station, foreign_key: "Stat_ID_station"
 
   validates :password_number, presence: true, length: { maximum: 8}
   validates :full_name, presence: true, length: { maximum: 80}
