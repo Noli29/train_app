@@ -13,5 +13,6 @@ ActiveAdmin.register Carriage do
 #   permitted
 # end
 
+  remove_filter :train, :places
 
 end

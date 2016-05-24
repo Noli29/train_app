@@ -14,4 +14,5 @@ ActiveAdmin.register Stop do
 # end
 
 
+  remove_filter :station, :route
 end

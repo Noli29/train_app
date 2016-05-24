@@ -13,5 +13,6 @@ ActiveAdmin.register Station do
 #   permitted
 # end
 
+  remove_filter :stops, :tickets
 
 end

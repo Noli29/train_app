@@ -13,5 +13,6 @@ ActiveAdmin.register Flight do
 #   permitted
 # end
 
+  remove_filter :route, :train, :tickets
 
 end

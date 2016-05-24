@@ -14,4 +14,5 @@ ActiveAdmin.register Place do
 # end
 
 
+  remove_filter :tickets, :carriage
 end

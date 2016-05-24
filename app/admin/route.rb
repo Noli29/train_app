@@ -13,5 +13,6 @@ ActiveAdmin.register Route do
 #   permitted
 # end
 
+  remove_filter :stops, :tickets, :flights
 
 end

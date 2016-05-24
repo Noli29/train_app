@@ -13,5 +13,6 @@ ActiveAdmin.register Ticket do
 #   permitted
 # end
 
+  remove_filter :place, :route, :flight, :station
 
 end
