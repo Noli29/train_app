@@ -1,6 +1,6 @@
 class Place < ActiveRecord::Base
-  attr_accessor :id_place, :id_ticket, :id_carriage, :train_number, :place
+  self.primary_key = :id_place
 
   has_many :tickets
-  belongs_to :carriage
+  belongs_to :carriage, foreign_key: :id_carriage
 end

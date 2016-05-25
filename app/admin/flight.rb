@@ -13,6 +13,15 @@ ActiveAdmin.register Flight do
 #   permitted
 # end
 
+  form do |f|
+    f.inputs 'Направлення' do
+      f.input :route, label: 'Направлення', member_label: Proc.new {|r| "#{r[:city]}, #{r[:region]}" }, include_blank: "Виберіть потрібне направлення"
+      f.input :train, label: 'Потяг', member_label: Proc.new {|t| t[:train_number] }, include_blank: "Виберіть потрібний потяг"
+    end
+
+    f.actions
+  end
+
   remove_filter :route, :train, :tickets
 
 end

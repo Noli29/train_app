@@ -1,17 +1,22 @@
 ActiveAdmin.register Train do
+    permit_params :train_number, carriages_attributes: [:carriage, :_destroy, places_attributes: [:place, :_destroy]]
 
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
-# permit_params :list, :of, :attributes, :on, :model
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if params[:action] == 'create' && current_user.admin?
-#   permitted
-# end
+    config.filters = false
 
-    remove_filter :carriages, :flights
+    form do |f|
+        f.inputs do
+            f.input :train_number
+            f.has_many :carriages, heading: 'Вагоны',  new_record: true do |c|
+                c.input :carriage, label: 'Номер вагона'
+
+                if !c.object.nil?
+                    c.has_many :places, heading: 'Місця', new_record: true do |p|
+                        p.input :place, label: 'Номер місця'
+                    end
+                end
+            end
+        end
+        f.actions
+    end
+
 end

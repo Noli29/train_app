@@ -49,25 +49,20 @@ ActiveRecord::Schema.define(version: 20160518214406) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "carriages", id: false, force: :cascade do |t|
-    t.integer "train_number",                                                            null: false
-    t.integer "id_carriage",  default: "nextval('carriages_id_carriage_seq'::regclass)", null: false
+  create_table "carriages", primary_key: "id_carriage", force: :cascade do |t|
+    t.integer "id_train", null: false
+    t.integer "carriage"
   end
 
   create_table "flights", primary_key: "id_flight", force: :cascade do |t|
-    t.integer "id_route",     null: false
-    t.integer "train_number", null: false
+    t.integer "id_route", null: false
+    t.integer "id_train", null: false
   end
 
-  create_table "places", id: false, force: :cascade do |t|
-    t.integer "train_number",                                                   null: false
-    t.integer "id_carriage",                                                    null: false
-    t.integer "place",        default: "nextval('places_place_seq'::regclass)", null: false
-    t.integer "id_place",                                                       null: false
-    t.integer "id_ticket",                                                      null: false
+  create_table "places", primary_key: "id_place", force: :cascade do |t|
+    t.integer "id_carriage", null: false
+    t.integer "place"
   end
-
-  add_index "places", ["id_place"], name: "places_id_place_key", unique: true, using: :btree
 
   create_table "routes", primary_key: "id_route", force: :cascade do |t|
     t.string "region", null: false
@@ -93,11 +88,12 @@ ActiveRecord::Schema.define(version: 20160518214406) do
     t.integer "id_flight",                  null: false
     t.date    "date_arrival",               null: false
     t.date    "date_dispatch",              null: false
-    t.integer "password_number",            null: false
+    t.integer "passport_number",            null: false
     t.string  "full_name",       limit: 80, null: false
   end
 
-  create_table "trains", primary_key: "train_number", force: :cascade do |t|
+  create_table "trains", primary_key: "id_train", force: :cascade do |t|
+    t.integer "train_number"
   end
 
   create_table "users", force: :cascade do |t|
@@ -118,9 +114,10 @@ ActiveRecord::Schema.define(version: 20160518214406) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "carriages", "trains", column: "train_number", primary_key: "train_number", name: "fk_carr_train"
+  add_foreign_key "carriages", "trains", column: "id_train", primary_key: "id_train", name: "fk_carr_train"
   add_foreign_key "flights", "routes", column: "id_route", primary_key: "id_route", name: "fk_flights_routes"
-  add_foreign_key "flights", "trains", column: "train_number", primary_key: "train_number", name: "fk_flights_trains"
+  add_foreign_key "flights", "trains", column: "id_train", primary_key: "id_train", name: "fk_flights_trains"
+  add_foreign_key "places", "carriages", column: "id_carriage", primary_key: "id_carriage", name: "fk_places_id_carriage"
   add_foreign_key "stops", "routes", column: "id_route", primary_key: "id_route", name: "fk_stops_routes"
   add_foreign_key "stops", "stations", column: "id_station", primary_key: "id_station", name: "fk_stops_stations"
   add_foreign_key "tickets", "flights", column: "id_flight", primary_key: "id_flight", name: "fk_tickets_flights"
