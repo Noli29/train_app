@@ -4,9 +4,8 @@ class TrainsController < ApplicationController
     @trains = Train.order("train_number").page(params[:page]).per(4)
   end
 
-
   def show
-    @train = Train.find(params[:id])
+    @train = Train.find(params[:id_train])
   end
 
   def new
