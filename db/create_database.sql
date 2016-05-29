@@ -81,21 +81,21 @@ ALTER TABLE Carriages ADD CONSTRAINT PK_carriages PRIMARY KEY (ID_carriage);
 ALTER TABLE Trains ADD CONSTRAINT PK_trains PRIMARY KEY (ID_train);
 
 
-ALTER TABLE Stations ADD CONSTRAINT FK_stations_route FOREIGN KEY (ID_route) REFERENCES Routes (ID_route);
+ALTER TABLE Stations ADD CONSTRAINT FK_stations_route FOREIGN KEY (ID_route) REFERENCES Routes (ID_route) ON DELETE CASCADE;
 -- -------------------------------
 ALTER TABLE Stops ADD CONSTRAINT FK_stops_train FOREIGN KEY (ID_train) REFERENCES Trains(ID_train);
 ALTER TABLE Stops ADD CONSTRAINT FK_stops_station FOREIGN KEY (ID_station) REFERENCES Stations(ID_station);
 -- ----------------------------------------------
 ALTER TABLE Flights ADD CONSTRAINT FK_flights_train FOREIGN KEY (ID_train) REFERENCES Trains (ID_train);
 -- ------------------------------------------------
-ALTER TABLE Tickets ADD CONSTRAINT FK_tickets_place FOREIGN KEY (ID_place) REFERENCES Places (ID_place);
+ALTER TABLE Tickets ADD CONSTRAINT FK_tickets_place FOREIGN KEY (ID_place) REFERENCES Places (ID_place) ON DELETE SET NULL;
 ALTER TABLE Tickets ADD CONSTRAINT FK_tickets_flight FOREIGN KEY (ID_flight) REFERENCES Flights (ID_flight);
-ALTER TABLE Tickets ADD CONSTRAINT FK_tickets_station FOREIGN KEY (ID_station) REFERENCES Stations (ID_station);
-ALTER TABLE Tickets ADD CONSTRAINT FK_tickets_station_dep FOREIGN KEY (Stat_ID_station) REFERENCES Stations (ID_station);
+ALTER TABLE Tickets ADD CONSTRAINT FK_tickets_station FOREIGN KEY (ID_station) REFERENCES Stations (ID_station) ON DELETE SET NULL;
+ALTER TABLE Tickets ADD CONSTRAINT FK_tickets_station_dep FOREIGN KEY (Stat_ID_station) REFERENCES Stations (ID_station) ON DELETE SET NULL;
 --------------------------------------------------
-ALTER TABLE Places ADD CONSTRAINT FK_places_carriage FOREIGN KEY (ID_carriage) REFERENCES Carriages (ID_carriage);
+ALTER TABLE Places ADD CONSTRAINT FK_places_carriage FOREIGN KEY (ID_carriage) REFERENCES Carriages (ID_carriage) ON DELETE CASCADE;
 -----------------------------------------------
-ALTER TABLE Carriages ADD CONSTRAINT FK_carriages_train FOREIGN KEY (ID_train) REFERENCES Trains (ID_train);
+ALTER TABLE Carriages ADD CONSTRAINT FK_carriages_train FOREIGN KEY (ID_train) REFERENCES Trains (ID_train) ON DELETE CASCADE;
 
 
 -- ALTER TABLE Stops ADD CONSTRAINT FK_stops_stations FOREIGN KEY (ID_station) REFERENCES Stations (ID_station);
