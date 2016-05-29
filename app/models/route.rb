@@ -1,9 +1,9 @@
 class Route < ActiveRecord::Base
-  attr_accessor :id_route, :region, :city
+  self.primary_key = :id_route
 
-  has_many :stops, foreign_key: "id_route"
-  has_many :tickets
-  has_many :flights, foreign_key: "id_route"
+  has_many :stations, foreign_key: :id_route
+
+  accepts_nested_attributes_for :stations, allow_destroy: true
 
   validates :region, presence: true, length: { maximum: 30}
   validates :city, presence: true, length: { maximum: 30}

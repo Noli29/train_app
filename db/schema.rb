@@ -50,46 +50,49 @@ ActiveRecord::Schema.define(version: 20160518214406) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "carriages", primary_key: "id_carriage", force: :cascade do |t|
-    t.integer "id_train", null: false
+    t.integer "id_train"
     t.integer "carriage"
   end
 
   create_table "flights", primary_key: "id_flight", force: :cascade do |t|
-    t.integer "id_route", null: false
-    t.integer "id_train", null: false
+    t.integer "id_train"
+    t.date    "date_start"
   end
 
   create_table "places", primary_key: "id_place", force: :cascade do |t|
-    t.integer "id_carriage", null: false
+    t.integer "id_carriage"
     t.integer "place"
   end
 
   create_table "routes", primary_key: "id_route", force: :cascade do |t|
-    t.string "region", null: false
-    t.string "city",   null: false
+    t.string "region"
+    t.string "city"
   end
 
   create_table "stations", primary_key: "id_station", force: :cascade do |t|
-    t.string "name_station", null: false
+    t.string  "name_station"
+    t.integer "id_route"
   end
 
-  create_table "stops", id: false, force: :cascade do |t|
-    t.integer "id_route",                                                      null: false
-    t.integer "id_stop",    default: "nextval('stops_id_stop_seq'::regclass)", null: false
-    t.integer "id_station",                                                    null: false
+  create_table "stops", primary_key: "id_stop", force: :cascade do |t|
+    t.integer "id_train"
+    t.integer "id_station"
+    t.time    "date_arrive"
+    t.time    "date_departure"
+    t.integer "day_from_departure"
     t.boolean "transit"
+    t.integer "sort_order"
   end
 
   create_table "tickets", primary_key: "id_ticket", force: :cascade do |t|
-    t.integer "id_place",                   null: false
-    t.integer "id_route",                   null: false
-    t.integer "id_station",                 null: false
-    t.integer "stat_id_station",            null: false
-    t.integer "id_flight",                  null: false
-    t.date    "date_arrival",               null: false
-    t.date    "date_dispatch",              null: false
-    t.integer "passport_number",            null: false
-    t.string  "full_name",       limit: 80, null: false
+    t.integer "id_place"
+    t.integer "id_flight"
+    t.integer "id_station"
+    t.integer "stat_id_station"
+    t.date    "date_arrival"
+    t.date    "date_dispatch"
+    t.integer "passport_number"
+    t.string  "full_name",       limit: 80
   end
 
   create_table "trains", primary_key: "id_train", force: :cascade do |t|
@@ -114,15 +117,14 @@ ActiveRecord::Schema.define(version: 20160518214406) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "carriages", "trains", column: "id_train", primary_key: "id_train", name: "fk_carr_train"
-  add_foreign_key "flights", "routes", column: "id_route", primary_key: "id_route", name: "fk_flights_routes"
-  add_foreign_key "flights", "trains", column: "id_train", primary_key: "id_train", name: "fk_flights_trains"
-  add_foreign_key "places", "carriages", column: "id_carriage", primary_key: "id_carriage", name: "fk_places_id_carriage"
-  add_foreign_key "stops", "routes", column: "id_route", primary_key: "id_route", name: "fk_stops_routes"
-  add_foreign_key "stops", "stations", column: "id_station", primary_key: "id_station", name: "fk_stops_stations"
-  add_foreign_key "tickets", "flights", column: "id_flight", primary_key: "id_flight", name: "fk_tickets_flights"
-  add_foreign_key "tickets", "places", column: "id_place", primary_key: "id_place", name: "fk_tickets_places"
-  add_foreign_key "tickets", "routes", column: "id_route", primary_key: "id_route", name: "fk_tickets_routes"
-  add_foreign_key "tickets", "stations", column: "id_station", primary_key: "id_station", name: "fk_tickets_station_arrival"
-  add_foreign_key "tickets", "stations", column: "stat_id_station", primary_key: "id_station", name: "fk_tickets_station_departure"
+  add_foreign_key "carriages", "trains", column: "id_train", primary_key: "id_train", name: "fk_carriages_train"
+  add_foreign_key "flights", "trains", column: "id_train", primary_key: "id_train", name: "fk_flights_train"
+  add_foreign_key "places", "carriages", column: "id_carriage", primary_key: "id_carriage", name: "fk_places_carriage"
+  add_foreign_key "stations", "routes", column: "id_route", primary_key: "id_route", name: "fk_stations_route"
+  add_foreign_key "stops", "stations", column: "id_station", primary_key: "id_station", name: "fk_stops_station"
+  add_foreign_key "stops", "trains", column: "id_train", primary_key: "id_train", name: "fk_stops_train"
+  add_foreign_key "tickets", "flights", column: "id_flight", primary_key: "id_flight", name: "fk_tickets_flight"
+  add_foreign_key "tickets", "places", column: "id_place", primary_key: "id_place", name: "fk_tickets_place"
+  add_foreign_key "tickets", "stations", column: "id_station", primary_key: "id_station", name: "fk_tickets_station"
+  add_foreign_key "tickets", "stations", column: "stat_id_station", primary_key: "id_station", name: "fk_tickets_station_dep"
 end

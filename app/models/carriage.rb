@@ -4,5 +4,5 @@ class Carriage < ActiveRecord::Base
   belongs_to :train, foreign_key: :id_train
   has_many :places, foreign_key: :id_carriage
 
-  accepts_nested_attributes_for :places
+  accepts_nested_attributes_for :places, allow_destroy: true
 end

@@ -1,18 +1,27 @@
 ActiveAdmin.register Route do
+  permit_params :id_route, :region, :city, stations_attributes: [:id_station, :name_station, :_destroy]
 
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
-# permit_params :list, :of, :attributes, :on, :model
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if params[:action] == 'create' && current_user.admin?
-#   permitted
-# end
+  show do
+    h3 route.region.to_s << ', ' << route.city.to_s
+    attributes_table do
+      route.stations.map do |s|
+        row 'Назва станції:' do
+          s.name_station
+        end
+      end
+    end
+  end
 
-  remove_filter :stops, :tickets, :flights
+  form do |f|
+    f.inputs do
+      f.input :region, label: 'Регіон:'
+      f.input :city, label: 'Місто:'
+      f.has_many :stations, heading: 'Зупинки', allow_destroy: true, new_record: true do |s|
+        s.input :name_station, label: 'Назва зупинки:'
+      end
+    end
+    f.actions
+  end
 
+  remove_filter :stations
 end
