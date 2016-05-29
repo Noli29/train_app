@@ -8,8 +8,10 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  resources :tickets
-  resources :flights
+  get '/trains' => 'trains#trains_list'
+  # get '/flight/:id/arrival/:arrival_id/departure/:departure_id/tickets' => 'tickets#form'
+  get '/tickets' => 'tickets#show_form'
+  get '/tickets/1' => 'tickets#show_ticket'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
