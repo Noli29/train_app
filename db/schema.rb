@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20160518214406) do
 
   create_table "places", primary_key: "id_place", force: :cascade do |t|
     t.integer "id_carriage"
+    t.boolean "is_unavailable", default: false
     t.integer "place"
   end
 

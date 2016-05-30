@@ -65,6 +65,7 @@ CREATE TABLE Tickets (
 CREATE TABLE Places(
 	ID_place SERIAL NOT NULL,
 	ID_carriage identify NULL,
+	is_unavailable BOOLEAN DEFAULT (FALSE),
 	place identify NULL
 );
 
