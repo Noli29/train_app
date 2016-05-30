@@ -9,7 +9,7 @@
         <label for="from-list">Звідки:</label>
         <select class="form-control" name="departure" id="from-list">
           <% @stations.each do |s| %>
-            <option value="<%= s.id_station %>"><%= s.name_station %></option>
+            <option value="<%= s.id_station %>"><%= s.route.city %>, <%= s.name_station %></option>
           <% end %>
         </select>
       </div>
