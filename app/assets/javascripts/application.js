@@ -18,11 +18,8 @@
 //= require_tree .
 
 
-
-
-
-    $(function () {
-        $('#datetimepicker2').datetimepicker({
-            locale: 'ru'
-        });
+$(function () {
+    $('#datetimepicker2').datepicker({
+        locale: 'ru'
     });
+});

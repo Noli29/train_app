@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  get '/trains' => 'trains#trains_list'
+  post '/trains' => 'trains#trains_list'
   # get '/flight/:id/arrival/:arrival_id/departure/:departure_id/tickets' => 'tickets#form'
   get '/tickets' => 'tickets#show_form'
   get '/tickets/1' => 'tickets#show_ticket'

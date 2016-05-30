@@ -3,83 +3,31 @@
     <div style="margin-bottom: 20px;">
       <a href="#" class="btn btn-default" style=" text-decoration: none;">В один кінець</a>
     </div>
-    <form class="form-inline" style="margin-bottom: 20px;">
+    <form class="form-inline" action="/trains" method="post" style="margin-bottom: 20px;">
       <div class="form-group">
         <!--<input type="text" class="form-control" placeholder="Звідки" data-id="from-station" data-type="direction-input">-->
-        <select class="form-control" id="from-list">
-          <option>Вінниця</option>
-          <option>Луцьк</option>
-          <option>Дніпро</option>
-          <option>Донецьк</option>
-          <option>Житомир</option>
-          <option>Ужгород</option>
-          <option>Запоріжжя</option>
-          <option>Івано-Франківськ</option>
-          <option>Київ</option>
-          <option>Кіровоград</option>
-          <option>Луганськ(Сєвєродонецьк)</option>
-          <option>Львів</option>
-          <option>Миколаїв</option>
-          <option>Одеса</option>
-          <option>Полтава</option>
-          <option>Рівне</option>
-          <option>Суми</option>
-          <option>Тернопіль</option>
-          <option>Харків</option>
-          <option>Херсон</option>
-          <option>Хмельницький</option>
-          <option>Черкаси</option>
-          <option>Чернівці</option>
-          <option>Чернігів</option>
-          <option>Севастополь</option>
-          <option>Сімферополь</option>
+        <label for="from-list">Звідки:</label>
+        <select class="form-control" name="departure" id="from-list">
+          <% @stations.each do |s| %>
+            <option value="<%= s.id_station %>"><%= s.name_station %></option>
+          <% end %>
         </select>
       </div>
       <div class="form-group">
         <!--<input type="text" class="form-control" placeholder="Куди" data-id="from-station" data-type="direction-input">-->
-        <select class="form-control" id="from-list">
-          <option>Вінниця</option>
-          <option>Луцьк</option>
-          <option>Дніпро</option>
-          <option>Донецьк</option>
-          <option>Житомир</option>
-          <option>Ужгород</option>
-          <option>Запоріжжя</option>
-          <option>Івано-Франківськ</option>
-          <option>Київ</option>
-          <option>Кіровоград</option>
-          <option>Луганськ(Сєвєродонецьк)</option>
-          <option>Львів</option>
-          <option>Миколаїв</option>
-          <option>Одеса</option>
-          <option>Полтава</option>
-          <option>Рівне</option>
-          <option>Суми</option>
-          <option>Тернопіль</option>
-          <option>Харків</option>
-          <option>Херсон</option>
-          <option>Хмельницький</option>
-          <option>Черкаси</option>
-          <option>Чернівці</option>
-          <option>Чернігів</option>
-          <option>Севастополь</option>
-          <option>Сімферополь</option>
+        <label for="to-list">Куди:</label>
+        <select class="form-control" name="arrival" id="to-list">
+          <% @stations.each do |s| %>
+              <option value="<%= s.id_station %>"><%= s.name_station %></option>
+          <% end %>
         </select>
       </div>
       <div class="form-group">
-        <div class='input-group date' id='datetimepicker2'>
-          <input type='text' class="form-control" />
-          <span class="input-group-addon">
-            <span class="glyphicon glyphicon-calendar"></span>
-          </span>
-        </div>
+        <label for="datetimepicker2">Дата:</label>
+        <input type="text" class='datepicker' name="date_start" id='datetimepicker2'>
+        </input>
       </div>
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Кількість пасажирів">
-      </div>
+      <button type="submit" class="btn btn-success" style="margin-bottom: 20px;">Знайти</button>
     </form>
-    <div class="button" style="margin-bottom: 20px;">
-      <a href="trains#trains_list" class="btn btn-primary">Знайти</a>
-    </div>
   </div>
 </main>

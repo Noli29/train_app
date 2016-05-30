@@ -1,26 +1,64 @@
 <div class="container">
   <div>
     <h3 style="color: #35bc58;">Знайдені поїзди</h3>
-    <div id="list-trains">
-      <h4>Поїзди</h4>
-    </div>
-    <div id="from">
-      <h4>Звідки</h4>
-    </div>
-    <div id="date-of-departure">
-      <h4>Дата відправлення</h4>
-    </div>
-    <div id="where">
-      <h4>Куди</h4>
-    </div>
-    <div id="date-of-arrival">
-      <h4>Дата прибуття</h4>
-    </div>
-    <div id="train-btn">
-      <h4>Вибрати</h4>
-    </div>
+
+    <table>
+      <tr>
+        <th>
+          Поїзди
+        </th>
+
+        <th>
+          Звідки
+        </th>
+
+        <th>
+          Дата відправлення
+        </th>
+
+        <th>
+          Куди
+        </th>
+
+        <th>
+          Дата прибуття
+        </th>
+
+        <th>
+          Дія
+        </th>
+      </tr>
+
+      <% @flights.each do |item| %>
+        <tr>
+          <td>
+            <%= item[:train].train_number %>
+          </td>
+
+          <td>
+            <%= item[:departure].station.name_station %>
+          </td>
+
+          <td>
+            <%= item[:departure].date_departure %>
+          </td>
+
+          <td>
+            <%= item[:arrival].station.name_station %>
+          </td>
+
+          <td>
+            <%= item[:arrival].date_arrive %>
+          </td>
+
+          <td>
+            <div id="train-btn">
+              <a href="tickets" class="btn btn-primary">Вибрати</a>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </table>
   </div>
-  <div class="button" style="margin-bottom: 20px;">
-    <a href="tickets" class="btn btn-primary">Вибрати</a>
-  </div>
+
 </div>
