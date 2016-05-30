@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" xmlns="http://www.w3.org/1999/html">
   <div>
     <div>
       <div id="prev">jlfjskfj</div>
@@ -23,15 +23,15 @@
     <div>
       <div class="select">
         <div id="carriages">
-          <div class="form-group">
-            <label style="margin-top: 55px;" for="carriages-list"></label>
-            <h5 style="font-weight: bold">Виберіть вагон:</h5>
-            <select class="form-control" id="carriages-list">
-              <option>купейний</option>
-              <option>плацкарт</option>
-            </select>
-            <label style="margin-top: 15px;"  for="carriages-list">Номер вагону:</label>
-            <select class="form-control" id="carriages-list">
+          <form class="form-inline"  style="margin: 0 0 35px">
+            <div class="form-group">
+              <label style="margin-top: 15px;" for="carriages-list">Виберіть вагон:</label>
+              <select class="form-control" id="carriages-list">
+                <option>купейний</option>
+                <option>плацкарт</option>
+              </select>
+              <label style="margin-top: 15px;"  for="carriages-list">Номер вагону:</label>
+              <select class="form-control" id="carriages-list">
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -43,64 +43,70 @@
               <option>9</option>
               <option>10</option>
             </select>
-          </div>
-        </div>
-        <div id="places">
-          <div class="form-group">
-            <label style="margin-top: 15px;"  for="places-list">Виберіть місце:</label>
-            <div>
+              <label style="margin-top: 5px;"  for="places-list">Виберіть місце:</label>
               <select class="form-control" id="places-list">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-                <option>11</option>
-                <option>12</option>
-                <option>13</option>
-                <option>14</option>
-                <option>15</option>
-                <option>16</option>
-                <option>17</option>
-                <option>18</option>
-                <option>19</option>
-                <option>20</option>
-                <option>21</option>
-                <option>22</option>
-                <option>23</option>
-                <option>24</option>
-                <option>25</option>
-                <option>26</option>
-                <option>27</option>
-                <option>28</option>
-                <option>29</option>
-                <option>30</option>
-                <option>31</option>
-                <option>32</option>
-                <option>33</option>
-                <option>34</option>
-                <option>35</option>
-                <option>36</option>
-              </select>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                  <option>13</option>
+                  <option>14</option>
+                  <option>15</option>
+                  <option>16</option>
+                  <option>17</option>
+                  <option>18</option>
+                  <option>19</option>
+                  <option>20</option>
+                  <option>21</option>
+                  <option>22</option>
+                  <option>23</option>
+                  <option>24</option>
+                  <option>25</option>
+                  <option>26</option>
+                  <option>27</option>
+                  <option>28</option>
+                  <option>29</option>
+                  <option>30</option>
+                  <option>31</option>
+                  <option>32</option>
+                  <option>33</option>
+                  <option>34</option>
+                  <option>35</option>
+                  <option>36</option>
+                </select>
             </div>
-          </div>
+          </form>
         </div>
       </div>
-
-
-
-      <div class="person">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Номер паспорта">
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="ПІБ">
-        </div>
+      <h4>Вкажіть інформацію про пасажирів</h4>
+      <div >
+        <form class="form-inline" style="margin-bottom: 20px;">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Прізвище">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Ім’я">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Номер паспорта">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Серія та №студ. квитка">
+          </div>
+          <div class="list">
+            <input type="radio" name="people" value="old">Дорослий<Br>
+            <input type="radio" name="people" value="child">Дитина<Br>
+            <input type="radio" name="people" value="stydent">Студент<Br>
+          </div>
+        </form>
       </div>
     </div>
   </div>
