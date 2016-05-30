@@ -58,7 +58,7 @@ CREATE TABLE Tickets (
 	Stat_ID_station identify NULL,
 	date_arrival DATE NULL, -- Генерирует приложение
 	date_dispatch DATE NULL, -- Генерирует приложение
-	passport_number INTEGER NULL,
+	passport_number VARCHAR(8) NULL,
 	full_name VARCHAR(80) NULL
 );
 

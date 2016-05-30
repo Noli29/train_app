@@ -43,6 +43,9 @@
                 <% (1..@flight.count_places).each do |i| %>
                     <option value="<%= i %>"><%= i %></option>
                 <% end %>
+                <% if flash[:notice] %>
+                    <div class="notice"><%= flash[:notice] %></div>
+                <% end %>
               </select>
             </div>
         </div>
@@ -56,7 +59,7 @@
           </div>
       </div>
     </div>
-      <button type="submit" class="btn btn-success">Оформити</button>
+      <button style="margin-top: 25px;" type="submit" class="btn btn-success">Оформити</button>
     </form>
   </div>
 </div>

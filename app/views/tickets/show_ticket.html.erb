@@ -12,6 +12,8 @@
       <div class="block4">
         <h4>Інформація про покупця</h4>
         <h5><%= @ticket.full_name %></h5>
+        <h5>Вагон: <%= @ticket.place.carriage.carriage %></h5>
+        <h5>Місце: <%= @ticket.place.place %></h5>
         <form class="form-inline" style="margin-bottom: 20px;">
           <div class="form-group">
           </div>

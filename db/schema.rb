@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(version: 20160518214406) do
     t.integer "stat_id_station"
     t.date    "date_arrival"
     t.date    "date_dispatch"
-    t.integer "passport_number"
+    t.string  "passport_number", limit: 8
     t.string  "full_name",       limit: 80
   end
 

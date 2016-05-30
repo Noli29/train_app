@@ -18,7 +18,7 @@
         <label for="to-list">Куди:</label>
         <select class="form-control" name="arrival" id="to-list">
           <% @stations.each do |s| %>
-              <option value="<%= s.id_station %>"><%= s.name_station %></option>
+              <option value="<%= s.id_station %>"><%= s.route.city %>, <%= s.name_station %></option>
           <% end %>
         </select>
       </div>
