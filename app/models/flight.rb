@@ -11,6 +11,10 @@ class Flight < ActiveRecord::Base
   # accepts_nested_attributes_for :carriages, allow_destroy: true
   # accepts_nested_attributes_for :places, allow_destroy: true
 
+  def count_places
+    COUNT_PLACES
+  end
+
   after_create do |record|
     i = 0
     while record.count_carriages.to_i > i

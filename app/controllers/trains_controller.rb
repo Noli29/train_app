@@ -16,6 +16,7 @@ class TrainsController < ApplicationController
         train_data[:departure] = fs
         train_data[:arrival] = result.first
         train_data[:train] = fs.flight.train
+        train_data[:flight] = fs.flight
 
         flights << train_data
       end

@@ -9,9 +9,10 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   post '/trains' => 'trains#trains_list'
-  # get '/flight/:id/arrival/:arrival_id/departure/:departure_id/tickets' => 'tickets#form'
-  get '/tickets' => 'tickets#show_form'
-  get '/tickets/1' => 'tickets#show_ticket'
+  get '/flights/:id/arrival/:arrival_id/departure/:departure_id/tickets' => 'tickets#show_form'
+  # get '/tickets' => 'tickets#show_form'
+  get '/tickets/:id' => 'tickets#show_ticket'
+  post '/tickets' => 'tickets#set_ticket'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

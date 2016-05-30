@@ -12,103 +12,51 @@
       </div>
       <div id="data">
         <div class="current-flight" style="margin-top: 15px;">
-          <h4>test</h4></div>
+          <h4><%= @departure_flight.station.route.city %>, <%= @departure_flight.station.name_station %>  =>  <%= @arrival_flight.station.route.city %>, <%= @arrival_flight.station.name_station %></h4></div>
         <div class="current-train" style="margin-top: 15px;">
-          <h4>test</h4>
+          <h4><%= @flight.train.train_number %></h4>
         </div>
       </div>
       <div id="next">sjfljskfj</div>
     </div>
-
-    <div>
+    <form class="form-inline" action="/tickets" method="post" style="margin: 0 0 35px">
+      <div>
       <div class="select">
         <div id="carriages">
-          <form class="form-inline"  style="margin: 0 0 35px">
-            <div class="form-group">
-              <label style="margin-top: 15px;" for="carriages-list">Виберіть вагон:</label>
-              <select class="form-control" id="carriages-list">
-                <option>купейний</option>
-                <option>плацкарт</option>
-              </select>
+          <div class="form-group">
+            <input type="hidden" name="flight_id" value="<%= @flight.id_flight %>">
+            <input type="hidden" name="departure_id" value="<%= @departure_flight.station.id_station %>">
+            <input type="hidden" name="arrival_id" value="<%= @arrival_flight.station.id_station %>">
+              <!--<label style="margin-top: 15px;" for="carriages-list">Виберіть вагон:</label>-->
+              <!--<select class="form-control" id="carriages-list">-->
+                <!--<option>купейний</option>-->
+                <!--<option>плацкарт</option>-->
+              <!--</select>-->
               <label style="margin-top: 15px;"  for="carriages-list">Номер вагону:</label>
-              <select class="form-control" id="carriages-list">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
+              <select class="form-control" name="carriage_number" id="carriages-list">
+                <% @flight.carriages.each do |c| %>
+                  <option value="<%= c.carriage %>"><%= c.carriage %></option>
+                <% end %>
               </select>
-              <label style="margin-top: 5px;"  for="places-list">Виберіть місце:</label>
-              <select class="form-control" id="places-list">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
-                  <option>7</option>
-                  <option>8</option>
-                  <option>9</option>
-                  <option>10</option>
-                  <option>11</option>
-                  <option>12</option>
-                  <option>13</option>
-                  <option>14</option>
-                  <option>15</option>
-                  <option>16</option>
-                  <option>17</option>
-                  <option>18</option>
-                  <option>19</option>
-                  <option>20</option>
-                  <option>21</option>
-                  <option>22</option>
-                  <option>23</option>
-                  <option>24</option>
-                  <option>25</option>
-                  <option>26</option>
-                  <option>27</option>
-                  <option>28</option>
-                  <option>29</option>
-                  <option>30</option>
-                  <option>31</option>
-                  <option>32</option>
-                  <option>33</option>
-                  <option>34</option>
-                  <option>35</option>
-                  <option>36</option>
-                </select>
+              <label style="margin-top: 5px;"   for="places-list">Виберіть місце:</label>
+              <select class="form-control" name="place_number" id="places-list">
+                <% (1..@flight.count_places).each do |i| %>
+                    <option value="<%= i %>"><%= i %></option>
+                <% end %>
+              </select>
             </div>
-          </form>
         </div>
       </div>
       <h4>Вкажіть інформацію про пасажирів</h4>
-      <div >
-        <form class="form-inline" style="margin-bottom: 20px;">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Прізвище">
+      <div ><div class="form-group">
+            <input type="text" name="full_name" class="form-control" placeholder="Повне ім’я">
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Ім’я">
+            <input type="text" name="passport" class="form-control" placeholder="Номер паспорта">
           </div>
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Номер паспорта">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Серія та №студ. квитка">
-          </div>
-          <div class="list">
-            <input type="radio" name="people" value="stydent">Студент<Br>
-          </div>
-        </form>
       </div>
     </div>
-  </div>
-  <div class="button-ticket" style="margin-bottom: 20px; margin-top: 20px;">
-    <a href="tickets/1" class="btn btn-primary">Оформити</a>
+      <button type="submit" class="btn btn-success">Оформити</button>
+    </form>
   </div>
 </div>

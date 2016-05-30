@@ -4,21 +4,14 @@
       <legend> Ваш квиток</legend>
       <div class="block3">
         <div id="list-ticket">
-          <h5>Поїзд</h5>
-          <h5>Дата відправлення</h5>
-          <h5>Дата прибуття</h5>
-          <h5>Вартість</h5>
-        </div>
-        <div id="list-ticket2">
-          <h5>test</h5>
-          <h5>test</h5>
-          <h5>test</h5>
-          <h5>test</h5>
+          <h5>Поїзд: <%= @ticket.flight.train.train_number %></h5>
+          <h5>Дата відправлення: <%= @ticket.date_dispatch %></h5>
+          <h5>Дата прибуття: <%= @ticket.date_arrival %></h5>
         </div>
       </div>
       <div class="block4">
         <h4>Інформація про покупця</h4>
-        <h5>Name client</h5>
+        <h5><%= @ticket.full_name %></h5>
         <form class="form-inline" style="margin-bottom: 20px;">
           <div class="form-group">
           </div>
