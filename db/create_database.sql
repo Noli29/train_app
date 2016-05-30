@@ -24,6 +24,14 @@ CREATE TABLE Stations(
   ID_route identify NULL
 );
 
+CREATE TABLE FlightStation(
+  ID_flight identify NULL,
+  ID_station identify NULL,
+	date_arrive TIMESTAMP NULL, --Время прибытия
+	date_departure TIMESTAMP NULL,  --Время отправления
+  sort_order identify NULL
+);
+
 CREATE TABLE Stops(
 	ID_stop SERIAL NOT NULL,
 	ID_train identify NULL,
@@ -62,7 +70,7 @@ CREATE TABLE Places(
 
 CREATE TABLE Carriages(
 	ID_carriage SERIAL NOT NULL,
-	ID_train identify NULL,
+	ID_flight identify NULL,
 	carriage identify NULL
 );
 
@@ -95,8 +103,10 @@ ALTER TABLE Tickets ADD CONSTRAINT FK_tickets_station_dep FOREIGN KEY (Stat_ID_s
 --------------------------------------------------
 ALTER TABLE Places ADD CONSTRAINT FK_places_carriage FOREIGN KEY (ID_carriage) REFERENCES Carriages (ID_carriage) ON DELETE CASCADE;
 -----------------------------------------------
-ALTER TABLE Carriages ADD CONSTRAINT FK_carriages_train FOREIGN KEY (ID_train) REFERENCES Trains (ID_train) ON DELETE CASCADE;
-
+ALTER TABLE Carriages ADD CONSTRAINT FK_carriages_train FOREIGN KEY (ID_flight) REFERENCES Flights (ID_flight) ON DELETE CASCADE;
+------------------------------------------------
+ALTER TABLE FlightStation ADD CONSTRAINT FK_flight_station_station FOREIGN KEY (ID_station) REFERENCES Stations (ID_station) ON DELETE CASCADE;
+ALTER TABLE FlightStation ADD CONSTRAINT FK_flight_station_flight FOREIGN KEY (ID_flight) REFERENCES Flights (ID_flight) ON DELETE CASCADE;
 
 -- ALTER TABLE Stops ADD CONSTRAINT FK_stops_stations FOREIGN KEY (ID_station) REFERENCES Stations (ID_station);
 -- ALTER TABLE Stops ADD CONSTRAINT FK_stops_route FOREIGN KEY (ID_route) REFERENCES Routes (ID_route);

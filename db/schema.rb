@@ -50,13 +50,21 @@ ActiveRecord::Schema.define(version: 20160518214406) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "carriages", primary_key: "id_carriage", force: :cascade do |t|
-    t.integer "id_train"
+    t.integer "id_flight"
     t.integer "carriage"
   end
 
   create_table "flights", primary_key: "id_flight", force: :cascade do |t|
     t.integer "id_train"
     t.date    "date_start"
+  end
+
+  create_table "flightstation", id: false, force: :cascade do |t|
+    t.integer  "id_flight"
+    t.integer  "id_station"
+    t.datetime "date_arrive"
+    t.datetime "date_departure"
+    t.integer  "sort_order"
   end
 
   create_table "places", primary_key: "id_place", force: :cascade do |t|
@@ -117,14 +125,16 @@ ActiveRecord::Schema.define(version: 20160518214406) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "carriages", "trains", column: "id_train", primary_key: "id_train", name: "fk_carriages_train"
+  add_foreign_key "carriages", "flights", column: "id_flight", primary_key: "id_flight", name: "fk_carriages_train", on_delete: :cascade
   add_foreign_key "flights", "trains", column: "id_train", primary_key: "id_train", name: "fk_flights_train"
-  add_foreign_key "places", "carriages", column: "id_carriage", primary_key: "id_carriage", name: "fk_places_carriage"
-  add_foreign_key "stations", "routes", column: "id_route", primary_key: "id_route", name: "fk_stations_route"
+  add_foreign_key "flightstation", "flights", column: "id_flight", primary_key: "id_flight", name: "fk_flight_station_flight", on_delete: :cascade
+  add_foreign_key "flightstation", "stations", column: "id_station", primary_key: "id_station", name: "fk_flight_station_station", on_delete: :cascade
+  add_foreign_key "places", "carriages", column: "id_carriage", primary_key: "id_carriage", name: "fk_places_carriage", on_delete: :cascade
+  add_foreign_key "stations", "routes", column: "id_route", primary_key: "id_route", name: "fk_stations_route", on_delete: :cascade
   add_foreign_key "stops", "stations", column: "id_station", primary_key: "id_station", name: "fk_stops_station"
   add_foreign_key "stops", "trains", column: "id_train", primary_key: "id_train", name: "fk_stops_train"
   add_foreign_key "tickets", "flights", column: "id_flight", primary_key: "id_flight", name: "fk_tickets_flight"
-  add_foreign_key "tickets", "places", column: "id_place", primary_key: "id_place", name: "fk_tickets_place"
-  add_foreign_key "tickets", "stations", column: "id_station", primary_key: "id_station", name: "fk_tickets_station"
-  add_foreign_key "tickets", "stations", column: "stat_id_station", primary_key: "id_station", name: "fk_tickets_station_dep"
+  add_foreign_key "tickets", "places", column: "id_place", primary_key: "id_place", name: "fk_tickets_place", on_delete: :nullify
+  add_foreign_key "tickets", "stations", column: "id_station", primary_key: "id_station", name: "fk_tickets_station", on_delete: :nullify
+  add_foreign_key "tickets", "stations", column: "stat_id_station", primary_key: "id_station", name: "fk_tickets_station_dep", on_delete: :nullify
 end
