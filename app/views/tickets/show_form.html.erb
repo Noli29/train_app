@@ -43,8 +43,8 @@
                 <% (1..@flight.count_places).each do |i| %>
                     <option value="<%= i %>"><%= i %></option>
                 <% end %>
-                <% if flash[:notice] %>
-                    <div class="notice"><%= flash[:notice] %></div>
+                <% flash.each do |message_type, message| %>
+                    <div class="alert alert-<%= message_type %>"><%= message %></div>
                 <% end %>
               </select>
             </div>

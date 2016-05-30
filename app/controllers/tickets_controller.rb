@@ -17,8 +17,7 @@ class TicketsController < ApplicationController
     place = Flight.find(permit_params[:flight_id]).carriages.where(carriage: permit_params[:carriage_number])[0].places.where(place: permit_params[:place_number])[0]
 
     if Ticket.exists?(id_place: place.id_place, id_flight: permit_params[:flight_id])
-      flash[:notice] = "ВИбране місце зайняте"
-      return redirect_to(:back)
+      return redirect_to(:back), flash: {notice: 'ВИбране місце зайняте'}
     end
 
     flight = Flight.find(permit_params[:flight_id])
